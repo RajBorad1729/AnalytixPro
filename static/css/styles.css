@@ -1,0 +1,771 @@
+body {
+    font-family: 'Helvetica', sans-serif;
+    background-image: url(../images/images.jpeg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+.title {
+    color: rgb(214, 69, 7);
+    font-size: 2em;
+    font-weight: bold;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 2px solid rgb(214, 69, 7);
+    width: 0;
+    animation: typing 5s steps(30, end) forwards, blink 0.6s step-end 3;
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 36.5%;
+    }
+}
+
+@keyframes blink {
+    50% {
+        border-color: transparent;
+    }
+}
+
+
+h1, h2, h3, h4 {
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    color: #02006c;
+    margin-bottom: 10px;
+}
+
+/* Container */
+.container {
+    width: 90%;
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Card */
+.card {
+    background: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+/* Upload Form */
+.upload-form {
+    margin: 20px 0;
+}
+.upload-form .form-group input[type="file"] {
+    display: none;
+}
+
+.drag-drop-area {
+    border: 2px dashed #666;
+    border-radius: 10px;
+    padding: 25px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.drag-drop-area.drag-over {
+    background-color: #f4f4f4;
+}
+
+.drag-drop-area p {
+    font-size: 1rem;
+    color: #444;
+}
+
+/* File Info */
+#file-info {
+    margin-top: 12px;
+    font-size: 1rem;
+    color: #333;
+}
+
+/* Button Styles */
+.upload-form input[type="submit"],
+.upload-form button {
+    background-color: #02006c;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.upload-form input[type="submit"]:hover,
+.upload-form button:hover {
+    background-color: #090088;
+}
+
+/* Instructions */
+.instructions {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.instructions h2 {
+    color: #02006c;
+    margin-bottom: 15px;
+}
+
+.instructions p {
+    color: #333;
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+.instructions .columns {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    font-weight: bold;
+}
+
+.instructions .columns span {
+    background: #02006c;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+}
+/* Outer Container for Header Section */
+.header-container {
+    background: linear-gradient(135deg, #010048, #02006c); /* Blue gradient */
+    padding: 20px 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    margin-bottom: 30px;
+}
+
+/* Header Title Styles */
+.header-container h1 {
+    color: #fff; /* White color for the header text */
+    font-size: 2rem;
+    margin: 0;
+}
+
+/* Button Styles */
+#predict-sales-btn {
+    background-color: #ffcc00; /* Yellow accent color for the button */
+    border: none;
+    color: #000; /* Black text on the button */
+    padding: 12px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+#predict-sales-btn:hover {
+    background-color: #e6b800; /* Slightly darker yellow when hovered */
+    cursor: pointer;
+}
+
+/* Flexbox Styles for Alignment */
+.d-flex {
+    display: flex;
+}
+
+.justify-content-between {
+    justify-content: space-between;
+}
+
+.align-items-center {
+    align-items: center;
+}
+  
+
+/* Filter Section */
+.filters {
+    background-color: #010048;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    margin-bottom: 40px;
+    transition: box-shadow 0.3s ease;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.filters:hover {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+.filters fieldset {
+    border: none;
+    padding: 0;
+    width: 100%;
+}
+
+.filters legend {
+    font-size: 1.5rem;
+    color: #fff;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.dropdown-menu {
+    max-height: 350px; 
+    overflow-y: auto; 
+    width: 250px; 
+    border: 1px solid #ccc;
+    background: white;
+    position: absolute;
+    z-index: 1000;
+}
+
+/* Uniform Button Styling */
+.filters button, 
+.filters .dropdown-toggle {
+    background-color: #3976ca;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    overflow-y: auto;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    flex: 1 1 auto;
+    text-align: center;
+    width: 200px; /* Ensure all buttons are the same width */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.filters .dropdown-toggle:hover,
+.filters button:hover {
+    background-color: #03002e;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Apply Filter Button */
+.btn-apply {
+    background-color: #28a745; /* Green */
+}
+
+.btn-apply:hover {
+    background-color: #218838;
+}
+
+/* Reset Button */
+.btn-reset {
+    background-color: #dc3545; /* Red */
+}
+
+.btn-reset:hover {
+    background-color: #c82333;
+}
+
+/* Adjust Filter Row */
+/* Ensures all filter items are in a single row */
+.filter-row {
+    display: flex;
+    flex-wrap: nowrap; /* Prevents wrapping to a new line */
+    gap: 15px;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+/* Ensures dropdown buttons and normal buttons are equal width */
+.filters .dropdown-toggle,
+.filters button {
+    flex: 1; /* Makes all buttons take equal space */
+    min-width: 160px; /* Ensures a minimum size */
+    max-width: 200px; /* Prevents oversized buttons */
+}
+
+/* Ensures Apply and Reset buttons remain in the same row */
+.filter-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+li {
+    list-style: none;
+    padding: 5px 10px; /* Add padding to list items */
+    display: flex;
+    align-items: center;
+}
+
+.form-check {
+    display: flex;
+    border-color: #000;
+    align-items: center;
+    gap: 10px; /* Space between checkbox and label */
+    width: 100%;
+    padding: 3px 3px; /* Add padding around checkbox container */
+}
+
+.form-check-input {
+    margin-left: 10px; /* Move checkbox towards the right */
+    border-color: #000;
+    cursor: pointer;
+}
+
+.form-check-label {
+    cursor: pointer;
+    border-color: #000;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+
+
+/* For responsiveness on smaller screens */
+@media (max-width: 1024px) {
+    .filter-row {
+        flex-wrap: wrap; /* Allows wrapping on smaller screens */
+        justify-content: center; /* Centers elements when wrapping */
+    }
+}
+
+@media (max-width: 768px) {
+    .filter-row {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .filters button {
+        width: 100%; /* Ensures full-width buttons on smaller screens */
+    }
+}
+
+
+/* Outer Container for Chart Section */
+.chart-section-container {
+    background: linear-gradient(135deg, #010048, #02006c); /* Blue gradient */
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    margin-bottom: 40px;
+}
+
+/* Chart Section Styles */
+.chart-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Chart Card Styles */
+.chart {
+    width: 48%;
+    min-width: 400px;
+    background: #3ee99c; /* White background for the charts */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    padding: 5px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.chart:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+}
+
+/* Chart Row Styles */
+.chart-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+/* Title and Content inside Charts */
+.chart h3 {
+    color: #ffcc00; /* Yellow accent for headings */
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #ffcc00;
+    padding-bottom: 10px;
+}
+
+.chart ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.chart li {
+    font-size: 1.2rem;
+    color: #000; /* Black text for better readability inside the chart */
+    margin-bottom: 10px;
+}
+
+.chart li strong {
+    color: #ffcc00; /* Yellow accent for key points */
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+    .chart {
+        width: 100%;
+    }
+    .chart-row {
+        flex-direction: column;
+    }
+}
+
+
+
+/* Container Styles */
+.metrics-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: #02006c;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    margin-top: 50px;
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.metrics-title {
+    color: #fff;
+    font-size: 2rem;
+    margin-bottom: 30px;
+}
+
+/* Row Styles */
+.metrics-row {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+/* Card Styles */
+.metrics-card {
+    flex: 1;
+    min-width: 300px;
+    max-width: 400px;
+    background: linear-gradient(135deg, #010048, #02006c);
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease-in-out;
+}
+
+.metrics-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Subtitle Styles */
+.metrics-subtitle {
+    color: #ffcc00;
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #ffcc00;
+    padding-bottom: 10px;
+}
+
+/* List Styles */
+.metrics-card ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.metrics-card li {
+    font-size: 1.2rem;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.metrics-card li strong {
+    color: #ffcc00;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+    .metrics-card {
+        width: 100%;
+    }
+
+    .metrics-row {
+        flex-direction: column;
+    }
+}
+
+
+/* Key Statistical Metrics Section */
+.statistics-section {
+    margin-top: 50px;
+    background-color: #02006c;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.statistics-section h2 {
+    color: #fff;
+    font-size: 2rem;
+    margin-bottom: 30px;
+}
+
+.statistics-row {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.statistics-card {
+    flex: 1;
+    min-width: 300px;
+    max-width: 400px;
+    background: linear-gradient(135deg, #010048, #02006c);
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease-in-out;
+}
+
+.statistics-card:hover {
+    transform: translateY(-5px);
+}
+
+.statistics-card h3 {
+    color: #ffcc00;
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #ffcc00;
+    padding-bottom: 10px;
+}
+
+.statistics-card ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.statistics-card li {
+    font-size: 1.2rem;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.statistics-card li strong {
+    color: #ffcc00;
+}
+
+
+/* Table Styling */
+.table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+.table th, .table td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #ccc;
+}
+
+.table th {
+    background-color: #010048;
+    color: #fff;
+}
+
+.table td {
+    background-color: #fff;
+}
+
+.table td:hover {
+    background-color: #f4f4f9;
+    cursor: pointer;
+}
+
+/* Buttons */
+.button {
+    background-color: #02006c;
+    color: #fff;
+    padding: 12px 18px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+}
+
+.button:hover {
+    background-color: #090088;
+}
+
+.button:active {
+    background-color: #03002e;
+}
+
+/* Modal */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.modal {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    width: 500px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+.modal h3 {
+    color: #03002e;
+    font-size: 1.5rem;
+}
+
+.modal .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #02006c;
+    color: #fff;
+    padding: 8px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.modal .close-btn:hover {
+    background-color: #090088;
+}
+
+
+
+/* Form Styling */
+.form-group input[type="text"], .form-group input[type="number"], .form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    margin: 10px 0;
+}
+
+.form-group textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+.prediction-container {
+    background-color: #010048;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.prediction-container h2 {
+    color: #fff;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.prediction-container input[type="number"],
+.prediction-container input[type="text"] {
+    padding: 12px;
+    width: 80%;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+.prediction-container button {
+    background-color: #02006c;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.prediction-container button:hover {
+    background-color: #090088;
+}
+
+/* Prediction Results */
+.prediction-results {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    margin-top: 20px;
+    text-align: center;
+}
+
+.prediction-results p {
+    font-size: 1.2rem;
+    color: #333;
+}
+
+/* Footer */
+footer {
+    background-color: #010048;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    border-top: 2px solid #090088;
+    margin-top: 50px;
+}
+
+footer a {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Apply and Reset Button Styles */
+.btn-apply, .btn-reset {
+    background-color: #007bff; /* Match the prediction dashboard button color */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.btn-apply:hover, .btn-reset:hover {
+    background-color: #0056b3; /* Darker shade for hover effect */
+}

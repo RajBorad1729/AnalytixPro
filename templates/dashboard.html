@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AnalytixPro</title>
+    <link rel="shortcut icon" href="static\images\Logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+<body>
+    
+    <div class="container">
+        <!-- Outer Container for Header Section -->
+
+    <div class="header-container d-flex justify-content-between align-items-center mb-3">
+        <h1>Sales Dashboard</h1>
+        <div>
+            <button id="predict-sales-btn" onclick="location.href='/predict_sales'">Prediction Dashboard</button>
+            <button id="predict-sales-btn" onclick="location.href='/'">Upload New Data</button>
+        </div>
+    </div>
+
+    <div class="filters">
+        <form id="filter-form" method="GET" action="/filter_data">
+            <fieldset>
+                <legend>Filters</legend>
+                <div class="filter-row">
+                    <!-- City Filter -->
+                    <div class="dropdown filter-item">
+                        <button class="dropdown-toggle" type="button" id="cityDropdown" data-mdb-toggle="dropdown" aria-expanded="false">
+                            City
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="cityDropdown">
+                            <li>
+                                <div class="form-check">
+                                    <input class="form-check-input select-all" type="checkbox" id="select_all_city" data-filter-group="city" />
+                                    <label class="form-check-label" for="select_all_city">Select All</label>
+                                </div>
+                            </li>
+                            {% for city in Filters['City'] %}
+                            <li>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="city[]" value="{{ city }}" id="city_{{ city }}"
+                                        {% if city in selected_cities %} checked {% endif %} />
+                                    <label class="form-check-label" for="city_{{ city }}">{{ city }}</label>
+                                </div>
+                            </li>
+                            {% endfor %}
+                            
+                        </ul>
+                    </div>
+    
+                    <!-- Region Filter -->
+                    <div class="dropdown filter-item">
+                        <button class="dropdown-toggle" type="button" id="regionDropdown" data-mdb-toggle="dropdown" aria-expanded="false">
+                            Region
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="regionDropdown">
+                            <li>
+                                <div class="form-check">
+                                    <input class="form-check-input select-all" type="checkbox" id="select_all_region" data-filter-group="region" />
+                                    <label class="form-check-label" for="select_all_region">Select All</label>
+                                </div>
+                            </li>
+                            {% for region in Filters['Region'] %}
+                            <li>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="region[]" value="{{ region }}" id="region_{{ region }}"
+                                        {% if region in selected_regions %} checked {% endif %} />
+                                    <label class="form-check-label" for="region_{{ region }}">{{ region }}</label>
+                                </div>
+                            </li>
+                            {% endfor %}
+                            
+                        </ul>
+                    </div>
+    
+                    <!-- Category Filter -->
+                    <div class="dropdown filter-item">
+                        <button class="dropdown-toggle" type="button" id="categoryDropdown" data-mdb-toggle="dropdown" aria-expanded="false">
+                            Category
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="categoryDropdown">
+                            <li>
+                                <div class="form-check">
+                                    <input class="form-check-input select-all" type="checkbox" id="select_all_category" data-filter-group="category" />
+                                    <label class="form-check-label" for="select_all_category">Select All</label>
+                                </div>
+                            </li>
+                            {% for category in Filters['Category'] %}
+                            <li>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="category[]" value="{{ category }}" id="category_{{ category }}"
+                                        {% if category in selected_categories %} checked {% endif %} />
+                                    <label class="form-check-label" for="category_{{ category }}">{{ category }}</label>
+                                </div>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+    
+                    <!-- Year Filter -->
+                    <div class="dropdown filter-item">
+                        <button class="dropdown-toggle" type="button" id="yearDropdown" data-mdb-toggle="dropdown" aria-expanded="false">
+                            Year
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="yearDropdown">
+                            {% for year in Filters['Year'] %}
+                            <li>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="year" value="{{ year }}" id="year_{{ year }}" />
+                                    <label class="form-check-label" for="year_{{ year }}">{{ year }}</label>
+                                </div>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+    
+                    <!-- Buttons Section (Now in the same row) -->
+                    <div class="filter-buttons">
+                        <button type="submit" id="apply-filters" class="btn-apply">Apply Filters</button>
+                        <button type="button" id="reset-filters" class="btn-reset">Reset</button>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+    
+    <!-- Outer Container for Chart Section -->
+    <div class="chart-section-container">
+        <!-- Chart Section -->
+        <div class="chart-container">
+            <div class="chart-row">
+                <div class="chart">
+                    {% if visuals['fig1'] %}
+                        {{ visuals['fig1']|safe }}
+                    {% else %}
+                        <p>Error: Sales and Profit chart is not available.</p>
+                    {% endif %}
+                </div>
+
+                <div class="chart">
+                    {% if visuals['fig2'] %}
+                        {{ visuals['fig2']|safe }}
+                    {% else %}
+                        <p>Error: Quantity chart is not available.</p>
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="chart-row">
+                <div class="chart">
+                    {% if visuals['fig3'] %}
+                        {{ visuals['fig3']|safe }}
+                    {% else %}
+                        <p>Error: Pie chart (Category vs Quantity) is not available.</p>
+                    {% endif %}
+                </div>
+
+                <div class="chart">
+                    {% if visuals['fig4'] %}
+                        {{ visuals['fig4']|safe }}
+                    {% else %}
+                        <p>Error: Pie chart (Sub-Category vs Quantity) is not available.</p>
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="chart-row">
+                <div class="chart">
+                    {% if visuals['fig5'] %}
+                        {{ visuals['fig5']|safe }}
+                    {% else %}
+                        <p>Error: Sub-Category-wise Profit and Sales bar chart is not available.</p>
+                    {% endif %}
+                </div>
+
+                <div class="chart">
+                    {% if visuals['fig6'] %}
+                        {{ visuals['fig6']|safe }}
+                    {% else %}
+                        <p>Error: Correlation Heatmap chart is not available.</p>
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="chart-row">
+                <div class="chart">
+                    {% if visuals['fig7'] %}
+                        {{ visuals['fig7']|safe }}
+                    {% else %}
+                        <p>Error: Sales Distribution chart is not available.</p>
+                    {% endif %}
+                </div>
+
+                <div class="chart">
+                    {% if visuals['fig8'] %}
+                        {{ visuals['fig8']|safe }}
+                    {% else %}
+                        <p>Error: Top Categories by Sales chart is not available.</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="metrics-container">
+        <h2 class="metrics-title">Key Insights</h2>
+        <div class="metrics-row">
+            <div class="metrics-card">
+                <h3 class="metrics-subtitle">Region Sales and Profit</h3>
+                <ul>
+                    <li><strong>Max Sales :</strong> {{ statistics['Region']['max_sales']['region'] }} ({{ statistics['Region']['max_sales']['value'] }})</li>
+                    <li><strong>Min Sales :</strong> {{ statistics['Region']['min_sales']['region'] }} ({{ statistics['Region']['min_sales']['value'] }})</li>
+                    <li><strong>Max Profit :</strong> {{ statistics['Region']['max_profit']['region'] }} ({{ statistics['Region']['max_profit']['value'] }})</li>
+                    <li><strong>Min Profit :</strong> {{ statistics['Region']['min_profit']['region'] }} ({{ statistics['Region']['min_profit']['value'] }})</li>
+                </ul>
+            </div>
+    
+            <div class="metrics-card">
+                <h3 class="metrics-subtitle">Category Sales and Profit</h3>
+                <ul>
+                    <li><strong>Max Sales :</strong> {{ statistics['Category']['max_sales']['category'] }} ({{ statistics['Category']['max_sales']['value'] }})</li>
+                    <li><strong>Min Sales :</strong> {{ statistics['Category']['min_sales']['category'] }} ({{ statistics['Category']['min_sales']['value'] }})</li>
+                    <li><strong>Max Profit :</strong> {{ statistics['Category']['max_profit']['category'] }} ({{ statistics['Category']['max_profit']['value'] }})</li>
+                    <li><strong>Min Profit :</strong> {{ statistics['Category']['min_profit']['category'] }} ({{ statistics['Category']['min_profit']['value'] }})</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Statistical Metrics Section -->
+    <div class="statistics-section">
+        <h2>Statistical Analysis</h2>
+        <div class="statistics-row">
+            <div class="statistics-card">
+                <h3>Sales</h3>
+                <ul>
+                    <li><strong>Total :</strong> {{ statistics['Sales']['total'] }}</li>
+                    <li><strong>Mean :</strong> {{ statistics['Sales']['mean'] }}</li>
+                    <li><strong>Median :</strong> {{ statistics['Sales']['median'] }}</li>
+                    <li><strong>Mode :</strong> {{ statistics['Sales']['mode'] }}</li>
+                    <li><strong>Standard Deviation :</strong> {{ statistics['Sales']['std'] }}</li>
+                </ul>
+            </div>
+
+            <div class="statistics-card">
+                <h3>Profit</h3>
+                <ul>
+                    <li><strong>Total :</strong> {{ statistics['Profit']['total'] }}</li>
+                    <li><strong>Mean :</strong> {{ statistics['Profit']['mean'] }}</li>
+                    <li><strong>Median :</strong> {{ statistics['Profit']['median'] }}</li>
+                    <li><strong>Mode :</strong> {{ statistics['Profit']['mode'] }}</li>
+                    <li><strong>Standard Deviation :</strong> {{ statistics['Profit']['std'] }}</li>
+                </ul>
+            </div>
+
+            <div class="statistics-card">
+                <h3>Quantity</h3>
+                <ul>
+                    <li><strong>Total :</strong> {{ statistics['Quantity']['total'] }}</li>
+                    <li><strong>Mean :</strong> {{ statistics['Quantity']['mean'] }}</li>
+                    <li><strong>Median :</strong> {{ statistics['Quantity']['median'] }}</li>
+                    <li><strong>Mode :</strong> {{ statistics['Quantity']['mode'] }}</li>
+                    <li><strong>Standard Deviation :</strong> {{ statistics['Quantity']['std'] }}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.0/mdb.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>

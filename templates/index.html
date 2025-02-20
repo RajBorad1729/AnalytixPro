@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AnalytixPro</title>
+    <link rel="shortcut icon" href="static\images\Logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Welcome to AnalytixPro</h1>
+        <h2>Upload Sales Data Here </h2>
+        <div class="card">
+            <form action="/upload" method="POST" enctype="multipart/form-data" class="upload-form" id="upload-form">
+                <div class="form-group">
+                    <input type="file" name="file" id="file-input" required>
+                </div>
+                <div class="drag-drop-area" id="drag-drop-area">
+                    <p>Drag & Drop your file here or click to browse</p>
+                </div>
+                <div id="file-info"></div>
+                <input type="hidden" name="reset_filters" value="true">
+                <input type="submit" value="Load Visuals">
+                <button type="button" id="reset-button">Reset</button>
+            </form>
+        </div>
+        <div class="instructions">
+            <h2>Instructions</h2>
+            <p>Please upload the sales data in CSV format. </p>
+            <!-- <ul>
+                <li>Date</li>
+                <li>Category</li>
+                <li>SubCategory</li>
+                <li>Region</li>
+                <li>City</li>
+                <li>Sales</li>
+                <li>Quantity</li>
+                <li>Profit</li>
+            </ul> -->
+            <p>Ensure that the column names Date,Category,SubCategory,Region,City,Sales,Quantity,Profit should be in data.</p>
+                <p> The system is standardize according this.</p>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
