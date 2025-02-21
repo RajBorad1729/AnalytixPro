@@ -4,11 +4,19 @@
 [![Flask](https://img.shields.io/badge/Flask-3.0.0-green.svg)](https://flask.palletsprojects.com/)
 [![Pandas](https://img.shields.io/badge/Pandas-2.1.4-orange.svg)](https://pandas.pydata.org/)
 [![NumPy](https://img.shields.io/badge/NumPy-1.26.2-lightblue.svg)](https://numpy.org/)
+[![statsmodels](https://img.shields.io/badge/statsmodels-0.14.0-red.svg)](https://www.statsmodels.org/)
+[![Plotly](https://img.shields.io/badge/Plotly-5.18.0-purple.svg)](https://plotly.com/)
+[![SciPy](https://img.shields.io/badge/SciPy-1.11.4-darkblue.svg)](https://scipy.org/)
+
 
 **AnalytixPro** is a powerful web application designed to analyze and visualize sales data efficiently. Built with **Flask and Python**, this dashboard provides insightful visualizations, statistical forecasting, and advanced filtering capabilities to help businesses make data-driven decisions.
 
 ---
 
+## 🌍 Live Demo Application
+The application is deployed and can be accessed at the following link: [AnalytixPro](https://analytixpro-2.onrender.com/)
+
+---
 ## ✨ Features
 
 - **📂 Interactive Data Upload**: Easily upload CSV files containing sales data.
@@ -18,6 +26,8 @@
   - Category-wise Distribution
   - Regional Performance
   - Correlation Analysis
+  
+
 - **📊 Advanced Analytics**:
   - Statistical Analysis
   - Time Series Forecasting
@@ -27,6 +37,7 @@
   - Region
   - Category
   - Year
+- 📥 Download Charts as PNG for further use.
 
 ---
 
@@ -92,10 +103,7 @@ python app.py
 http://localhost:5000
 ```
 
----
 
-## 🌍 Deployed Application
-The application is deployed and can be accessed at the following link: [AnalytixPro](https://analytixpro-2.onrender.com/)
 
 ---
 
