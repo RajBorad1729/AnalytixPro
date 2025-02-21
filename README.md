@@ -1,4 +1,4 @@
-# 📊 AnalytixPro - Sales Data Analytics Dashboard
+# 📊 AnalytixPro - Sales Data Analytics App
 
 [![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![Flask](https://img.shields.io/badge/Flask-3.0.0-green.svg)](https://flask.palletsprojects.com/)
