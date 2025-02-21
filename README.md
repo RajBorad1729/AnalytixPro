@@ -1,6 +1,6 @@
-# Data Analysis and Prediction Project
+# Data Analysis and Forcasting Project
 
-This project is a web application for data analysis and sales prediction. It allows users to upload CSV files, preprocess the data, visualize it, and make sales predictions using machine learning models.
+This project is a web application for data analysis and sales forcasting. It allows users to upload CSV files, preprocess the data, visualize it, and make sales forcasting.
 
 ## Features
 
@@ -8,7 +8,7 @@ This project is a web application for data analysis and sales prediction. It all
 - Preprocess and filter data
 - Visualize data with interactive charts
 - Perform statistical analysis
-- Predict sales using machine learning models
+- Predict sales using Statstical models
 
 ## Setup Instructions
 
@@ -61,6 +61,4 @@ Data_Ana/
 └── README.md
 ```
 
-## License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
