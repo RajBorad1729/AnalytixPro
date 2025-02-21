@@ -1,5 +1,10 @@
 # 📊 AnalytixPro - Sales Data Analytics Dashboard
 
+[![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org/downloads/)
+[![Flask](https://img.shields.io/badge/Flask-3.0.0-green.svg)](https://flask.palletsprojects.com/)
+[![Pandas](https://img.shields.io/badge/Pandas-2.1.4-orange.svg)](https://pandas.pydata.org/)
+[![NumPy](https://img.shields.io/badge/NumPy-1.26.2-lightblue.svg)](https://numpy.org/)
+
 **AnalytixPro** is a powerful web application designed to analyze and visualize sales data efficiently. Built with **Flask and Python**, this dashboard provides insightful visualizations, statistical forecasting, and advanced filtering capabilities to help businesses make data-driven decisions.
 
 ---
