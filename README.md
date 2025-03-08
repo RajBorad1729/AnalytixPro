@@ -145,6 +145,5 @@ The application expects a CSV file with the following columns:
 
 ## ❤️ Acknowledgments
 
-- Thanks to all contributors
 - Inspired by the need for better sales data visualization
 - Built with passion for data analytics
