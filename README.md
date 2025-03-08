@@ -78,8 +78,8 @@ Data_Ana/
 
 ### 1️⃣ Clone the repository
 ```sh
-git clone https://github.com/yourusername/Data_Ana.git
-cd Data_Ana
+https://github.com/RajBorad1729/AnalytixPro.git
+cd AnalytixPro
 ```
 
 ### 2️⃣ Create a virtual environment
